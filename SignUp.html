@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
 
-     <link rel="icon" href="./Assets/favicon.png">
+    <link rel="icon" href="./Assets/favicon.png">
     <style>
         body {
             background-image: url('./Assets/signup.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
-            background-size: 100%;
+            background-size: cover;
+
         }
 
         .signup-form {
@@ -56,13 +57,53 @@
             background-color: black;
             color: white;
         }
+
+        /* Fix for padding behavior */
+        .signup-form input {
+            box-sizing: border-box;
+        }
+
+        /* Responsive Rules */
+        @media (max-width: 400px) {
+            .signup-form {
+                width: 90%;
+                /* Form takes up 90% of screen width on mobile */
+                top: 50%;
+            }
+
+            .signup-form h1 {
+                font-size: 24px;
+                margin: 20px 0;
+            }
+
+            .signup-form p {
+                font-size: 16px;
+            }
+
+            .signup-form button {
+                width: 100%;
+                /* Larger button for easier tapping on mobile */
+            }
+        }
+
+        /* Fix for short screens (landscape mode) */
+        @media (max-height: 600px) {
+            .signup-form {
+                position: relative;
+                /* Switch from absolute to relative to allow scrolling */
+                top: 0;
+                left: 0;
+                transform: none;
+                margin: 20px auto;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="signup-form">
         <h1>Signup Form</h1>
-        <form autocomplete="off" action="./index.html"  method="post">
+        <form autocomplete="off" action="./index.html" method="post">
             <p>First Name</p>
             <input type="text" name="first name" placeholder="First Name" pattern="[a-zA-Z]{3,30}"
                 title="Username must be between 3 and 30 letters long and contain no numbers or special characters."
